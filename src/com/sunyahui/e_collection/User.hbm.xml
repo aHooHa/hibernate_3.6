@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping package="com.newer.e_collections">
+
+	<class name="User" table="usertt">
+		<id name="id" type="int" column="id">
+			<generator class="native">
+				<param name="sequence">t_user_1</param>
+			</generator>
+		</id>
+		<property name="name" type="string" column="name" length="20" />
+
+		<!-- set集合 -->
+		<set name="addressSet" table="address_user" order-by=" address desc">
+			<key column="userId"></key>
+			<element type="string" column="address"></element>
+		</set>
+
+		<!-- list集合 -->
+		<list name="addressList" table="address_list">
+			<key column="userId"></key>
+			<list-index column="idx"></list-index>
+			<element type="string" column="address"></element>
+
+		</list>
+		<map name="addressMap" table="addressMap_user">
+			<key column="userId"></key>
+			<map-key type="string" column="key_"></map-key>
+			<element type="string" column="address"></element>
+
+		</map>
+	</class>
+
+</hibernate-mapping>

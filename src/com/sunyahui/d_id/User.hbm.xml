@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping package="com.newer.a.helloword">
+
+	<class name="User" table="tt_user">
+		<id name="id" type="int" column="id">
+		
+		  <!-- identity：使用数据库的自动增长策略，不是所有数据库都支持，比如oracle就不支持 
+            <generator class="identity"/>
+			-->
+
+			<!-- sequence：在 DB2，PostgreSQL，Oracle，SAP DB，McKoi 中使用序列（sequence）
+				在使用Oracle数据库时可以使用这一个
+            <generator class="sequence"/>
+ 			-->
+            
+            <!-- hilo，使用高低位算法生成主键值。
+            	只需要一张额外表，所有的数据都支持。
+            <generator class="hilo">
+                <param name="table">hi_value</param>
+                <param name="column">next_value</param>
+                <param name="max_lo">100</param>
+        	</generator>
+        	 -->
+        	
+        	<!-- 根据底层数据库的能力选择 identity、sequence 或者 hilo中的一个。
+        	<generator class="native"></generator>
+        	 -->
+
+			<!-- increment：由Hibernate维护的自动增长。
+				先查询当前最大的id值，再加1使用
+				不推荐使用，因为在多线程下会问题。
+        	<generator class="increment"></generator>
+			-->
+            
+            <!-- assigned：手工指定主键值  
+        	<generator class="assigned"></generator>
+            -->
+
+			<!-- uuid：由Hibernate自动生成UUID并指定为主键值。  -->
+		
+		
+	
+			<generator class="native" >
+			  <param name="sequence">t_user_1</param>
+			 </generator>
+		</id> 
+		<property name="name" type="string" column="name" length="20" />
+	</class>
+
+</hibernate-mapping>
