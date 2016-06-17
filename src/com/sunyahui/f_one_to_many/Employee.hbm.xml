@@ -5,7 +5,7 @@
 
 
 
-<hibernate-mapping package="com.newer.f_many_to_one">
+<hibernate-mapping package="com.sunyahui.f_one_to_many">
 
 	<class name="Employee" table="employee">
 		<id name="id" type="int" column="id">

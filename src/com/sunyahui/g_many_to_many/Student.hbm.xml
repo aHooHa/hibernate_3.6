@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping package="com.sunyahui.g_many_to_many">
+
+	<class name="Student" table="student" >
+		<id name="id" column="id">
+			<generator class="native">
+				<param name="sequence">t_student_3</param>
+			</generator>
+		</id>
+		<property name="name" />
+		<set name="teachers" table="student_teacher" inverse="false">
+			<key column="studentId"></key>
+			<many-to-many class="Teacher" column="teacherId"></many-to-many>
+		
+		</set>
+	</class>
+
+</hibernate-mapping>

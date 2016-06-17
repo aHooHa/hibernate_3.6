@@ -5,7 +5,7 @@
 
 
 
-<hibernate-mapping package="com.newer.e_collections">
+<hibernate-mapping package="com.sunyahui.e_collection">
 
 	<class name="User" table="usertt">
 		<id name="id" type="int" column="id">

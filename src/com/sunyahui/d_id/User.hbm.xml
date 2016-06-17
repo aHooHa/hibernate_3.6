@@ -5,7 +5,7 @@
 
 
 
-<hibernate-mapping package="com.newer.a.helloword">
+<hibernate-mapping package="com.sunyahui.d_id">
 
 	<class name="User" table="tt_user">
 		<id name="id" type="int" column="id">
