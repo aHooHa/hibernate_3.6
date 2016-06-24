@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping package="com.sunyahui.l_second_cashe">
+
+	<class name="Department" table="department" >
+		<id name="id" type="int" column="id">
+			<generator class="native">
+				<param name="sequence">t_user_3</param>
+			</generator>
+		</id>
+		<property name="name" type="string" column="name" length="20" />
+	     <set name="employees" inverse="false">
+	     	<key column="departmentId"></key>
+	     	<one-to-many class="Employee"/>
+	     </set>
+		
+	</class>
+
+</hibernate-mapping>

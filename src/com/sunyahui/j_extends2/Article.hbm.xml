@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping package="com.sunyahui.j_extends2">
+
+	<class name="Article" table="article">
+		<id name="id">
+			<generator class="sequence">
+				<param name="sequence">j_article</param>
+			</generator>
+		</id>
+		<property name="title" />
+		<property name="content"  />
+		<property name="postTime"  />
+		<joined-subclass name="Topic" table="topic">
+		    <key column="id"></key>
+			<property name="type"></property>
+		</joined-subclass>
+		<joined-subclass name="Reply" table="reply">
+		    <key column="id"></key>
+			<property name="floor"></property>
+		</joined-subclass>
+
+		
+	</class>
+
+</hibernate-mapping>
